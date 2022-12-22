@@ -16,7 +16,7 @@ void CheckControllerInput() {
 
 		if (GamepadController::KeyDown(ControllerKey::RB))
 		{
-			frame->ShowFullScreen(false);
+			frame->ShowFullScreen(true);
 			Sleep(50);
 		}
 
@@ -29,7 +29,7 @@ void CheckControllerInput() {
 bool App::OnInit() {
 
 	frame = new MainFrame("App");
-	frame->SetClientSize(800, 600);
+	frame->SetClientSize(1024, 800);
 	frame->Center();
 	frame->Show();
 

@@ -140,12 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
+    <ClInclude Include="ControlGrid.h" />
     <ClInclude Include="GamepadController.h" />
     <ClInclude Include="MainFrame.h" />
     <ClInclude Include="MiButton.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
+    <ClCompile Include="ControlGrid.cpp" />
     <ClCompile Include="GamepadController.cpp" />
     <ClCompile Include="MainFrame.cpp" />
     <ClCompile Include="MiButton.cpp" />

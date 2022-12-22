@@ -27,6 +27,9 @@
     <ClInclude Include="MiButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ControlGrid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainFrame.cpp">
@@ -39,6 +42,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MiButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ControlGrid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
