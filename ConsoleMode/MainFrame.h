@@ -6,7 +6,7 @@ class MainFrame : public wxFrame
 {
 public:
 	MainFrame(const wxString& title);
-	void Timer_Tick(wxTimerEvent& evt);
+	wxBoxSizer* menu;
 
 private:
 	ControlGrid* grid;
@@ -14,5 +14,4 @@ private:
 	template<typename T> T* GetCtrl(int id);
 	wxButton* btn;
 	void BA(wxCommandEvent& evt);
-	void HandleControllerInput();
 };
