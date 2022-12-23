@@ -10,6 +10,7 @@ public:
 	bool exited = false;
 	std::thread* controller_thread;
 	void Exit();
+	void StartController();
 	bool OnInit();
 };
 

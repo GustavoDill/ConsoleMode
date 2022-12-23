@@ -40,22 +40,23 @@ void CheckControllerInput() {
 
 }
 
-
+void App::StartController() {
+	App::controller_thread = new std::thread(std::bind(CheckControllerInput));
+	App::controller_thread->detach();
+}
  
-//std::thread thread;
+
+
 bool App::OnInit() {
 	instance = this;
 	frame = new MainFrame("App");
 	frame->SetClientSize(1024, 800);
 	frame->Center();
 	frame->Show();
-	frame->ShowFullScreen(true);
 
-	controller_thread = new std::thread(std::bind(CheckControllerInput));
-
-	controller_thread->detach();
-
-	//thread.join();
+	//frame->ShowFullScreen(true);
+	
+	//RunController();
 
 	return true;
 
