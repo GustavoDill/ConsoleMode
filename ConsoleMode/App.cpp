@@ -17,24 +17,14 @@ App* instance;
 
 void CheckControllerInput() {
 	while (!instance->exited) {
-		// Get input from the game controller
+		std::tuple<bool, ControllerKey> result = GamepadController::GetInput();
+		bool yes;
+		ControllerKey key;
+		std::tie(yes, key) = result;
 
-		if (GamepadController::KeyDown(ControllerKey::RB))
-		{
-			frame->menu->Show(true);
+		if (yes) {
+			frame->ControllerInput(key);
 		}
-		if (GamepadController::KeyDown(ControllerKey::LB))
-		{
-			frame->menu->Show(false);
-		}
-
-		// If Select pressed, exit application
-		if (GamepadController::KeyDown(ControllerKey::SELECT))
-		{
-			instance->Exit();
-
-		}
-
 		Sleep(20);
 	}
 
@@ -53,10 +43,11 @@ bool App::OnInit() {
 	frame->SetClientSize(1024, 800);
 	frame->Center();
 	frame->Show();
+	frame->Shown();
 
 	//frame->ShowFullScreen(true);
 	
-	//RunController();
+	StartController();
 
 	return true;
 

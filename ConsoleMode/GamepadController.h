@@ -1,11 +1,13 @@
 #pragma once
 #include <Windows.h>
 #include <Xinput.h>
+#include <tuple>
 
 #define RESULT_SUCCESS                    0L
 
 typedef unsigned char	BYTE;
 enum ControllerKey {
+	NONE = 0,
 	DPAD_UP = XINPUT_GAMEPAD_DPAD_UP,
 	DPAD_DOWN = XINPUT_GAMEPAD_DPAD_DOWN,
 	DPAD_LEFT = XINPUT_GAMEPAD_DPAD_LEFT,
@@ -23,9 +25,12 @@ enum ControllerKey {
 
 class GamepadController
 {
+
 public:
+
 	static XINPUT_GAMEPAD GetGameController();
 	static bool KeyDown(ControllerKey key);
+	static std::tuple<bool, ControllerKey> GetInput();
 	static BYTE RightTrigger();
 	static BYTE LeftTrigger();
 

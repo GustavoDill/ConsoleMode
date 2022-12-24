@@ -1,4 +1,7 @@
 #include "GamepadController.h"
+#include <tuple>
+
+std::tuple<bool, ControllerKey> NO_INPUT = std::make_tuple(false, ControllerKey::NONE);
 
 XINPUT_GAMEPAD GamepadController::GetGameController()
 {
@@ -15,6 +18,15 @@ XINPUT_GAMEPAD GamepadController::GetGameController()
 		//wxLogError(_T("Controller is not connected"));
 	}
 	return XINPUT_GAMEPAD();
+}
+;
+std::tuple<bool, ControllerKey> GamepadController::GetInput() {
+	unsigned short a = GetGameController().wButtons;
+	auto key = (ControllerKey)a;
+
+	if (a > ControllerKey::NONE)
+		return std::tuple<bool, ControllerKey>(true, key);
+	return NO_INPUT;
 }
 bool GamepadController::KeyDown(ControllerKey key) {
 	return GamepadController::GetGameController().wButtons & (int)key;
